@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2744B98621F45429004F8E3F /* RNFBMlkitModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2744B98521F45429004F8E3F /* RNFBMlkitModule.m */; };
+		8B06D3F322F84F7200A5B542 /* RNFBMLVisionLandmarkRecognizerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D3F222F84F7200A5B542 /* RNFBMLVisionLandmarkRecognizerModule.m */; };
+		8B06D3FC22F863AE00A5B542 /* RNFBMLVisionCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D3FB22F863AE00A5B542 /* RNFBMLVisionCommon.m */; };
+		8B06D40022F8748C00A5B542 /* RNFBMLVisionFaceDetectorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D3FF22F8748C00A5B542 /* RNFBMLVisionFaceDetectorModule.m */; };
+		8B06D40622F97B4900A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D40522F97B4900A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.m */; };
+		8B06D40A22F989EF00A5B542 /* RNFBMLVisionTextRecognizerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D40922F989EF00A5B542 /* RNFBMLVisionTextRecognizerModule.m */; };
+		8B06D40E22F99DF900A5B542 /* RNFBMLVisionImageLabelerModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D40D22F99DF900A5B542 /* RNFBMLVisionImageLabelerModule.m */; };
+		8B06D41222F9A15A00A5B542 /* RNFBMLVisionBarcodeDetectorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06D41122F9A15A00A5B542 /* RNFBMLVisionBarcodeDetectorModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,9 +29,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2744B98221F45429004F8E3F /* libRNFBMlkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNFBMlkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2744B98421F45429004F8E3F /* RNFBMlkitModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RNFBMlkitModule.h; path = RNFBMlkit/RNFBMlkitModule.h; sourceTree = SOURCE_ROOT; };
-		2744B98521F45429004F8E3F /* RNFBMlkitModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RNFBMlkitModule.m; path = RNFBMlkit/RNFBMlkitModule.m; sourceTree = SOURCE_ROOT; };
+		2744B98221F45429004F8E3F /* libRNFBMLVision.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNFBMLVision.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B06D3F122F84F6500A5B542 /* RNFBMLVisionLandmarkRecognizerModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionLandmarkRecognizerModule.h; sourceTree = "<group>"; };
+		8B06D3F222F84F7200A5B542 /* RNFBMLVisionLandmarkRecognizerModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionLandmarkRecognizerModule.m; sourceTree = "<group>"; };
+		8B06D3FA22F863A400A5B542 /* RNFBMLVisionCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionCommon.h; sourceTree = "<group>"; };
+		8B06D3FB22F863AE00A5B542 /* RNFBMLVisionCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionCommon.m; sourceTree = "<group>"; };
+		8B06D3FE22F8747F00A5B542 /* RNFBMLVisionFaceDetectorModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionFaceDetectorModule.h; sourceTree = "<group>"; };
+		8B06D3FF22F8748C00A5B542 /* RNFBMLVisionFaceDetectorModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionFaceDetectorModule.m; sourceTree = "<group>"; };
+		8B06D40422F97B3600A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionDocumentTextRecognizerModule.h; sourceTree = "<group>"; };
+		8B06D40522F97B4900A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionDocumentTextRecognizerModule.m; sourceTree = "<group>"; };
+		8B06D40822F989E400A5B542 /* RNFBMLVisionTextRecognizerModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionTextRecognizerModule.h; sourceTree = "<group>"; };
+		8B06D40922F989EF00A5B542 /* RNFBMLVisionTextRecognizerModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionTextRecognizerModule.m; sourceTree = "<group>"; };
+		8B06D40C22F99DEF00A5B542 /* RNFBMLVisionImageLabelerModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionImageLabelerModule.h; sourceTree = "<group>"; };
+		8B06D40D22F99DF900A5B542 /* RNFBMLVisionImageLabelerModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionImageLabelerModule.m; sourceTree = "<group>"; };
+		8B06D41022F9A14B00A5B542 /* RNFBMLVisionBarcodeDetectorModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNFBMLVisionBarcodeDetectorModule.h; sourceTree = "<group>"; };
+		8B06D41122F9A15A00A5B542 /* RNFBMLVisionBarcodeDetectorModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNFBMLVisionBarcodeDetectorModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,26 +60,36 @@
 		2744B97521F452B8004F8E3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2744B98221F45429004F8E3F /* libRNFBMlkit.a */,
+				2744B98221F45429004F8E3F /* libRNFBMLVision.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2744B98321F45429004F8E3F /* RNFBMlkit */ = {
+		2744B98321F45429004F8E3F /* RNFBMLVision */ = {
 			isa = PBXGroup;
 			children = (
-				2744B9A121F48736004F8E3F /* converters */,
-				2744B98C21F45C64004F8E3F /* common */,
-				2744B98421F45429004F8E3F /* RNFBMlkitModule.h */,
-				2744B98521F45429004F8E3F /* RNFBMlkitModule.m */,
+				8B06D3F122F84F6500A5B542 /* RNFBMLVisionLandmarkRecognizerModule.h */,
+				8B06D3F222F84F7200A5B542 /* RNFBMLVisionLandmarkRecognizerModule.m */,
+				8B06D3FA22F863A400A5B542 /* RNFBMLVisionCommon.h */,
+				8B06D3FB22F863AE00A5B542 /* RNFBMLVisionCommon.m */,
+				8B06D3FE22F8747F00A5B542 /* RNFBMLVisionFaceDetectorModule.h */,
+				8B06D3FF22F8748C00A5B542 /* RNFBMLVisionFaceDetectorModule.m */,
+				8B06D40422F97B3600A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.h */,
+				8B06D40522F97B4900A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.m */,
+				8B06D40822F989E400A5B542 /* RNFBMLVisionTextRecognizerModule.h */,
+				8B06D40922F989EF00A5B542 /* RNFBMLVisionTextRecognizerModule.m */,
+				8B06D40C22F99DEF00A5B542 /* RNFBMLVisionImageLabelerModule.h */,
+				8B06D40D22F99DF900A5B542 /* RNFBMLVisionImageLabelerModule.m */,
+				8B06D41022F9A14B00A5B542 /* RNFBMLVisionBarcodeDetectorModule.h */,
+				8B06D41122F9A15A00A5B542 /* RNFBMLVisionBarcodeDetectorModule.m */,
 			);
-			path = RNFBMlkit;
+			path = RNFBMLVision;
 			sourceTree = "<group>";
 		};
 		3323F52AAFE26B7384BE4DE3 = {
 			isa = PBXGroup;
 			children = (
-				2744B98321F45429004F8E3F /* RNFBMlkit */,
+				2744B98321F45429004F8E3F /* RNFBMLVision */,
 				2744B97521F452B8004F8E3F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2744B98121F45429004F8E3F /* RNFBMlkit */ = {
+		2744B98121F45429004F8E3F /* RNFBMLVision */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNFBMlkit" */;
+			buildConfigurationList = 2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNFBMLVision" */;
 			buildPhases = (
 				2744B97E21F45429004F8E3F /* Sources */,
 				2744B97F21F45429004F8E3F /* Frameworks */,
@@ -81,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = RNFBMlkit;
-			productName = RNFBMlkit;
-			productReference = 2744B98221F45429004F8E3F /* libRNFBMlkit.a */;
+			name = RNFBMLVision;
+			productName = RNFBMLVision;
+			productReference = 2744B98221F45429004F8E3F /* libRNFBMLVision.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -92,7 +120,7 @@
 		3323F95273A95DB34F55C6D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = RNFBMlkit;
+				CLASSPREFIX = RNFBMLVision;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Invertase;
 				TargetAttributes = {
@@ -102,11 +130,12 @@
 					};
 				};
 			};
-			buildConfigurationList = 3323F1C5716BA966BBBB95A4 /* Build configuration list for PBXProject "RNFBMlkit" */;
+			buildConfigurationList = 3323F1C5716BA966BBBB95A4 /* Build configuration list for PBXProject "RNFBMLVision" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 3323F52AAFE26B7384BE4DE3;
@@ -114,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2744B98121F45429004F8E3F /* RNFBMlkit */,
+				2744B98121F45429004F8E3F /* RNFBMLVision */,
 			);
 		};
 /* End PBXProject section */
@@ -124,7 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2744B98621F45429004F8E3F /* RNFBMlkitModule.m in Sources */,
+				8B06D40E22F99DF900A5B542 /* RNFBMLVisionImageLabelerModule.m in Sources */,
+				8B06D40622F97B4900A5B542 /* RNFBMLVisionDocumentTextRecognizerModule.m in Sources */,
+				8B06D40A22F989EF00A5B542 /* RNFBMLVisionTextRecognizerModule.m in Sources */,
+				8B06D3F322F84F7200A5B542 /* RNFBMLVisionLandmarkRecognizerModule.m in Sources */,
+				8B06D3FC22F863AE00A5B542 /* RNFBMLVisionCommon.m in Sources */,
+				8B06D40022F8748C00A5B542 /* RNFBMLVisionFaceDetectorModule.m in Sources */,
+				8B06D41222F9A15A00A5B542 /* RNFBMLVisionBarcodeDetectorModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +266,8 @@
 					"${BUILT_PRODUCTS_DIR}/**",
 					"${SRCROOT}/../../../ios/Firebase/**",
 					"$(FIREBASE_SEARCH_PATH)/Firebase/**",
-					"$(SRCROOT)/../../../ios/Pods/FirebaseMlkit/Frameworks",
-					"$(SRCROOT)/../../../tests/ios/Pods/FirebaseMlkit/Frameworks",
+					"$(SRCROOT)/../../../ios/Pods/FirebaseMlkitLanguage/Frameworks",
+					"$(SRCROOT)/../../../tests/ios/Pods/FirebaseMlkitLanguage/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -290,7 +325,7 @@
 					"${BUILT_PRODUCTS_DIR}/**",
 					"${SRCROOT}/../../../ios/Firebase/**",
 					"$(FIREBASE_SEARCH_PATH)/Firebase/**",
-					"$(SRCROOT)/../../../ios/Pods/FirebaseMlkit/Frameworks",
+					"$(SRCROOT)/../../../ios/Pods/FirebaseMlkitLanguage/Frameworks",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -325,7 +360,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNFBMlkit" */ = {
+		2744B98821F45429004F8E3F /* Build configuration list for PBXNativeTarget "RNFBMLVision" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2744B98921F45429004F8E3F /* Debug */,
@@ -334,7 +369,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3323F1C5716BA966BBBB95A4 /* Build configuration list for PBXProject "RNFBMlkit" */ = {
+		3323F1C5716BA966BBBB95A4 /* Build configuration list for PBXProject "RNFBMLVision" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3323F7E33E1559A2B9826720 /* Debug */,
