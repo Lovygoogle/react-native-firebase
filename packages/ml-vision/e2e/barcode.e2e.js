@@ -39,7 +39,7 @@ function barcodeValidate(barcode) {
   barcode.rawValue.should.be.String();
 }
 
-describe('mlkit.vision.barcode', () => {
+android.describe('mlkit.vision.barcode', () => {
   before(async () => {
     testImageFile = `${firebase.utils.FilePath.DOCUMENT_DIRECTORY}/barcode.png`;
     await firebase

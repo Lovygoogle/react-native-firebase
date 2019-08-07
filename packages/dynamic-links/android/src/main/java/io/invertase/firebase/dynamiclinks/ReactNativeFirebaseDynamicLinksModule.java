@@ -63,7 +63,7 @@ public class ReactNativeFirebaseDynamicLinksModule extends ReactNativeFirebaseMo
         if (task.isSuccessful()) {
           promise.resolve(task.getResult());
         } else {
-          Log.e(TAG, "RNFB: Unknown error while building Dynamic Link ", task.getException());
+          Log.e(TAG, "RNFB: Unknown error while building Dynamic Link " + task.getException().getMessage());
           rejectPromiseWithCodeAndMessage(promise, "build-failed", task.getException().getMessage());
         }
       });
@@ -164,29 +164,12 @@ public class ReactNativeFirebaseDynamicLinksModule extends ReactNativeFirebaseMo
     builder.setLink(Uri.parse(dynamicLinkMap.getString("link")));
     builder.setDomainUriPrefix(Objects.requireNonNull(dynamicLinkMap.getString("domainUriPrefix")));
 
-    if (dynamicLinkMap.hasKey("ios")) {
-      buildIosParameters(dynamicLinkMap.getMap("ios"), builder);
-    }
-
-    if (dynamicLinkMap.hasKey("itunes")) {
-      buildItunesParameters(dynamicLinkMap.getMap("itunes"), builder);
-    }
-
-    if (dynamicLinkMap.hasKey("social")) {
-      buildSocialParameters(dynamicLinkMap.getMap("social"), builder);
-    }
-
-    if (dynamicLinkMap.hasKey("android")) {
-      buildAndroidParameters(dynamicLinkMap.getMap("android"), builder);
-    }
-
-    if (dynamicLinkMap.hasKey("analytics")) {
-      buildAnalyticsParameters(dynamicLinkMap.getMap("analytics"), builder);
-    }
-
-    if (dynamicLinkMap.hasKey("navigation")) {
-      buildNavigationParameters(dynamicLinkMap.getMap("navigation"), builder);
-    }
+    buildIosParameters(dynamicLinkMap.getMap("ios"), builder);
+    buildItunesParameters(dynamicLinkMap.getMap("itunes"), builder);
+    buildSocialParameters(dynamicLinkMap.getMap("social"), builder);
+    buildAndroidParameters(dynamicLinkMap.getMap("android"), builder);
+    buildAnalyticsParameters(dynamicLinkMap.getMap("analytics"), builder);
+    buildNavigationParameters(dynamicLinkMap.getMap("navigation"), builder);
 
     return builder;
   }

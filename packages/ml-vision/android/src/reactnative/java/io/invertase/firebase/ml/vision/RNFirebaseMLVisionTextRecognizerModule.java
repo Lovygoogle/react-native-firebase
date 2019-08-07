@@ -75,4 +75,14 @@ public class RNFirebaseMLVisionTextRecognizerModule extends ReactNativeFirebaseM
         }
       });
   }
+
+  @ReactMethod
+  public void cloudDocumentTextRecognizerProcessImage(
+    String appName,
+    String stringUri,
+    ReadableMap cloudDocumentTextRecognizerOptions,
+    Promise promise
+  ) {
+    // todo
+  }
 }

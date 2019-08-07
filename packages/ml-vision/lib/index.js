@@ -85,7 +85,7 @@ class FirebaseMlKitVisionModule extends FirebaseModule {
     validateOptionalNativeDependencyExists(
       'ml_vision_face_model',
       'ML Kit Vision Face Detector',
-      !!this.native.faceDetectorProcessImage,
+      !!this.native.imageLabelerProcessImage,
     );
 
     if (!isString(localImageFilePath)) {

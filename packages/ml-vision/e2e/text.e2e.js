@@ -62,14 +62,16 @@ function textBaseElementValidate(textBase, cloud = false) {
 
   // recognizedLanguages
   textBase.recognizedLanguages.should.be.an.Array();
-  if (textBase.recognizedLanguages.length) {
-    textBase.recognizedLanguages[0].should.be.a.String();
+  if (cloud) {
+    textBase.recognizedLanguages.length.should.be.greaterThan(0);
+  } else {
+    textBase.recognizedLanguages.length.should.equal(0);
   }
 }
 
 let testImageFile;
 
-describe('mlkit.vision.text', () => {
+android.describe('mlkit.vision.text', () => {
   before(async () => {
     testImageFile = `${firebase.utils.FilePath.DOCUMENT_DIRECTORY}/text.png`;
     await firebase
@@ -77,7 +79,6 @@ describe('mlkit.vision.text', () => {
       .ref('vision/text.png')
       .writeToFile(testImageFile);
   });
-
   describe('textRecognizerProcessImage()', () => {
     it('should throw if image path is not a string', () => {
       try {

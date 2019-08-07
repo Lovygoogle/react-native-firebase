@@ -56,7 +56,7 @@ describe('naturalLanguage()', () => {
       }
     });
 
-    xit('throws an error if smart replies native module does not exist', async () => {
+    it('throws an error if smart replies native module does not exist', async () => {
       const method = firebase.naturalLanguage().native.getSuggestedReplies;
       firebase.naturalLanguage()._nativeModule = Object.assign(
         {},

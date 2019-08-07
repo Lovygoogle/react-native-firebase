@@ -17,12 +17,12 @@
 
 const baseParams = {
   link: 'https://invertase.io',
-  domainUriPrefix: 'https://reactnativefirebase.page.link',
+  domainUriPrefix: 'https://xyz.page.link',
 };
 
 module.exports.baseParams = baseParams;
 
-describe('dynamicLinks()', () => {
+describe.only('dynamicLinks()', () => {
   describe('namespace', () => {
     it('accessible from firebase.app()', () => {
       const app = firebase.app();
