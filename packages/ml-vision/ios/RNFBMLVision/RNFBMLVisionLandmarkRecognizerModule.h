@@ -15,22 +15,10 @@
  *
  */
 
-#import "RCTConvert+FIRTextMessageArray.h"
+#import <Foundation/Foundation.h>
+#import <Firebase/Firebase.h>
+#import <React/RCTBridgeModule.h>
 
-@implementation RCTConvert (FIRTextMessageArray)
-#if __has_include(<FirebaseMLNLSmartReply/FIRTextMessage.h>)
-+ (FIRTextMessage *)FIRTextMessage:(id)json {
-  NSDictionary *messageDict = [self NSDictionary:json];
-  FIRTextMessage *firTextMessage = [
-      [FIRTextMessage alloc]
-      initWithText:messageDict[@"text"]
-         timestamp:[[messageDict valueForKey:@"timestamp"] doubleValue]
-            userID:messageDict[@"userId"] ? messageDict[@"userId"] : @""
-       isLocalUser:messageDict[@"isLocalUser"] ? YES : NO
-  ];
-  return firTextMessage;
-}
+@interface RNFBMLVisionLandmarkRecognizerModule : NSObject <RCTBridgeModule>
 
-RCT_ARRAY_CONVERTER(FIRTextMessage)
-#endif
 @end
