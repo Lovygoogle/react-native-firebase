@@ -35,7 +35,6 @@ console.log(`Android AVD: ${config.configurations['android.emu.debug'].name}`);
 
 const PACKAGES = [
   'app',
-  'admob',
   'dynamic-links',
   'iid',
   'perf',
