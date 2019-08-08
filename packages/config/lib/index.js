@@ -66,7 +66,10 @@ function convertNativeConfigValues(configValues) {
     } else if (
       numberValue !== null &&
       numberValue !== undefined &&
-      (stringValue === null || stringValue === '' || !isNaN(stringValue))
+      (stringValue == null ||
+        stringValue === '' ||
+        numberValue.toString() === stringValue ||
+        parseInt(stringValue, 10) === numberValue)
     ) {
       value = numberValue;
     }
