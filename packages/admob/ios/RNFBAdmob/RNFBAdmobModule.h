@@ -17,4 +17,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern const NSString * RNFBVersionString;
+#import <React/RCTBridgeModule.h>
+
+@interface RNFBAdmobModule : NSObject <RCTBridgeModule>
+
+@end

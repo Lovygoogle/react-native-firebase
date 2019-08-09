@@ -15,6 +15,8 @@
  *
  */
 
-// require('./app');
-require('./app.admob');
-// require('./app.smartreply');
+export default {
+  DISABLED: 0,
+  EEA: 1,
+  NOT_EEA: 2,
+};

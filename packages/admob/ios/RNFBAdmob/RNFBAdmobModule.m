@@ -1,9 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const version = require('../lib/version');
-const outputPath = path.resolve(__dirname, '..', 'ios', 'RNFBApp', 'RNFBVersion.m');
-const template = `/**
+/**
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,11 +15,24 @@ const template = `/**
  *
  */
 
-#import "RCTVersion.h"
+#import <React/RCTUtils.h>
+#import <Firebase/Firebase.h>
 
-// generated file - do not modify or commit
-NSString* const RNFBVersionString = @"VERSION";
+#import "RNFBAdmobModule.h"
+#import "RNFBApp/RNFBSharedUtils.h"
 
-`;
 
-fs.writeFileSync(outputPath, template.replace('@"VERSION"', `@"${version}"`), 'utf8');
+@implementation RNFBAdmobModule
+#pragma mark -
+#pragma mark Module Setup
+
+  RCT_EXPORT_MODULE();
+
+  - (dispatch_queue_t)methodQueue {
+    return dispatch_get_main_queue();
+  }
+
+#pragma mark -
+#pragma mark Firebase Admob Methods
+
+@end

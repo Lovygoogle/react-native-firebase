@@ -15,6 +15,8 @@
  *
  */
 
-// require('./app');
-require('./app.admob');
-// require('./app.smartreply');
+export default {
+  UNKNOWN: 0,
+  PERSONALIZED: 1,
+  UNPERSONALIZED: 2,
+};
