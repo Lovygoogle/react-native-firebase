@@ -64,4 +64,3 @@ android/.settings
 .circleci
 .eslintignore
 type-test.ts
-scripts

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2016-present Invertase Limited & Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,8 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-
-extern const NSString * RNFBVersionString;
+export default {
+  UNKNOWN: 0,
+  NON_PERSONALIZED: 1,
+  PERSONALIZED: 2,
+};
