@@ -15,24 +15,6 @@
  *
  */
 
-#import <React/RCTUtils.h>
-#import <Firebase/Firebase.h>
+#import <Foundation/Foundation.h>
 
-#import "RNFBAdmobModule.h"
-#import "RNFBApp/RNFBSharedUtils.h"
-
-
-@implementation RNFBAdmobModule
-#pragma mark -
-#pragma mark Module Setup
-
-  RCT_EXPORT_MODULE();
-
-  - (dispatch_queue_t)methodQueue {
-    return dispatch_get_main_queue();
-  }
-
-#pragma mark -
-#pragma mark Firebase Admob Methods
-
-@end
+extern const NSString * RNFBVersionString;
