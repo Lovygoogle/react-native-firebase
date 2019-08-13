@@ -1,8 +1,5 @@
 {
   "react-native": {
-    "admob_app_id": "ca-app-pub-4406399463942824~1625911479",
-    "admob_delay_app_measurement_init": true,
-
     "crashlytics_ndk_enabled": true,
     "crashlytics_debug_enabled": true,
     "crashlytics_auto_collection_enabled": true,
@@ -22,7 +19,7 @@
     "TODO_ml_natural_language_translate_model" : true,
     "TODO_analytics_auto_collection_enabled": true,
     "TODO_perf_auto_collection_enabled": true,
-    "TODO_fiam_auto_collection_enabled": true,
+    "TODO_in_app_messaging_auto_collection_enabled": true,
     "TODO_database_persistence_enabled": true,
     "TODO_firestore_persistence_enabled": true,
 
