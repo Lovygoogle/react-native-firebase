@@ -10,7 +10,7 @@ description: Getting started with Firebase In-App Messaging in React Native Fire
 Install this module with Yarn:
 
 ```bash
-yarn add @react-native-firebase/in-app-messaging
+yarn add @react-native-firebase/fiam
 ```
 
 > Integrating manually and not via React Native auto-linking? Check the setup instructions for <Anchor version group href="/android">Android</Anchor> & <Anchor version group href="/ios">iOS</Anchor>.
@@ -24,13 +24,13 @@ control of the displaying of these messages.
 Once installed, import the FIAM package into your project:
 
 ```js
-import inAppMessaging from '@react-native-firebase/in-app-messaging';
+import fiam from '@react-native-firebase/fiam';
 ```
 
 The package also provides access to the firebase instance:
 
 ```js
-import { firebase } from '@react-native-firebase/in-app-messaging';
+import { firebase } from '@react-native-firebase/fiam';
 ```
 
 ### Suppressing messages
@@ -43,15 +43,15 @@ achieve this.
 > The suppressed state is not persisted between restarts, so ensure it is called as early as possible.
 
 ```js
-import inAppMessaging from '@react-native-firebase/in-app-messaging';
+import fiam from '@react-native-firebase/fiam';
 
 async function bootstrap() {
-  await inAppMessaging().setMessagesDisplaySuppressed(true);
+  await fiam().setMessagesDisplaySuppressed(true);
 }
 
 async function onSetup(user) {
   await setupUser(user);
   // Allow user to receive messages now setup is complete
-  inAppMessaging().setMessagesDisplaySuppressed(false);
+  fiam().setMessagesDisplaySuppressed(false);
 }
 ```

@@ -9,8 +9,6 @@
       to: '/android'
     - text: iOS Initialization
       to: '/ios'
-    - text: European User Consent
-      to: '/european-user-consent'
 
 - module: analytics
   group: Analytics
@@ -140,7 +138,7 @@
     - text: iOS Setup
       to: '/ios'
 
-- module: in-app-messaging
+- module: fiam
   group: In-App Messaging
   children:
     - text: Overview
@@ -226,8 +224,8 @@
     - text: iOS Setup
       to: '/ios'
 
-- module: remote-config
-  group: Remote RemoteConfig
+- module: config
+  group: Remote Config
   children:
     - text: Overview
       to: '/'
