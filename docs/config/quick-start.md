@@ -39,10 +39,10 @@ import remoteConfig from '@react-native-firebase/remote-config';
 
 async function getValues() {
   try {
-    const activated = await remoteConfig().fetchAndActivate();
+    const activated = await config().fetchAndActivate();
 
     if (activated) {
-      const experimentalFeatureEnabled = await remoteConfig().getValue('experiment');
+      const experimentalFeatureEnabled = await config().getValue('experiment');
       console.log('Experimental source: ', experimentalFeatureEnabled.source);
       console.log('Experimental value: ', experimentalFeatureEnabled.value);
     }
@@ -62,7 +62,7 @@ have been fetched and activated, it is recommended you set default values using 
 import remoteConfig from '@react-native-firebase/remote-config';
 
 async function bootstrap() {
-  await remoteConfig().setDefaults({
+  await config().setDefaults({
     experiment: false,
   });
 }
@@ -77,7 +77,7 @@ which are applied in a production application. This can be done with the `setCon
 import remoteConfig from '@react-native-firebase/remote-config';
 
 async function bootstrap() {
-  await remoteConfig().setConfigSettings({
+  await config().setConfigSettings({
     isDeveloperModeEnabled: __DEV__,
   });
 }
