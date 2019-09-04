@@ -3,46 +3,28 @@ title: iOS Setup
 description: Manually integrate Analytics into your iOS application.
 ---
 
-# iOS Manual Installation
+# iOS Manual Linking
 
-The following steps are only required if you are using React Native <= 0.59 or need to manually integrate the library.
+## Manual iOS Integration via CocoaPods
 
-Installation can be done via CocoaPods (recommended) or via Frameworks:
+> The following steps are only required if your environment does not have access to React Native
+> auto-linking.
 
-## 1. CocoaPods Installation
+#### Add Analytics Pod
 
-### Add the RNFBAnalytics Pod
+**`ios/Podfile`**:
 
-Add the `RNFBAnalytics` Pod to your projects `/ios/Podfile`:
-
-```ruby{3}
+```ruby{4}
+// ..
 target 'app' do
-  ...
+  // ..
   pod 'RNFBAnalytics', :path => '../node_modules/@react-native-firebase/analytics/ios'
 end
 ```
 
-### Update Pods & rebuild the project
+## Manual iOS Integration via Frameworks
 
-You may need to update your local Pods in order for the `RNFBAnalytics` Pod to be installed in your project:
-
-```bash
-$ cd /ios/
-$ pod install --repo-update
-```
-
-Once the Pods have installed locally, rebuild your iOS project:
-
-```bash
-react-native run-ios
-```
-
-## 2. Manual Framework Installation
-
-If your environment does not have access to Cocopods, it is still possible to install the project
-via Frameworks. 
-
-TODO
+_TODO_
 
 ## Device Identification
 

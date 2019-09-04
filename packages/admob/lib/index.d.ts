@@ -20,15 +20,19 @@ import { ReactNativeFirebase } from '@react-native-firebase/app';
 /**
  * Firebase Admob package for React Native.
  *
- * #### Example: access the Firebase export from the `admob` package:
+ * #### Example 1
  *
- * ```jS
+ * Access the firebase export from the `admob` package:
+ *
+ * ```js
  * import { firebase } from '@react-native-firebase/admob';
  *
  * // firebase.admob().X
  * ```
  *
- * #### Example: Using the default export from the `admob` package:
+ * #### Example 2
+ *
+ * Using the default export from the `admob` package:
  *
  * ```js
  * import admob from '@react-native-firebase/admob';
@@ -36,7 +40,9 @@ import { ReactNativeFirebase } from '@react-native-firebase/app';
  * // admob().X
  * ```
  *
- * #### Example: Using the default export from the `app` package:
+ * #### Example 3
+ *
+ * Using the default export from the `app` package:
  *
  * ```js
  * import firebase from '@react-native-firebase/app';
@@ -90,24 +96,12 @@ export namespace Admob {
    */
   export enum AdEventType {
     /**
-     * When an ad has loaded. At this point, the ad is ready to be shown to the user.
-     *
-     * #### Example
-     *
-     * ```js
-     * import { AdEventType } from '@react-native-firebase/admob';
-     *
-     * advert.onAdEvent((type,error,data) => {
-     *   if (type === AdEventType.LOADED) {
-     *     advert.show();
-     *   }
-     * });
-     * ```
+     * When a ad has loaded. At this point, the ad is ready to be shown to the user.
      */
     LOADED = 'loaded',
 
     /**
-     * The ad has thrown an error. See the error parameter the listener callback for more information.
+     * The ad errored. See the error parameter the listener callback for more information.
      *
      * #### Example
      *
@@ -124,7 +118,7 @@ export namespace Admob {
     ERROR = 'error',
 
     /**
-     * The ad opened and is currently visible to the user. This event is fired after the `show()`
+     * The ad opened and is currently visible to the user. This event is received after the `show()`
      * method has been called.
      */
     OPENED = 'opened',
@@ -152,7 +146,7 @@ export namespace Admob {
    */
   export enum RewardedAdEventType {
     /**
-     * An event fired when a rewarded ad has loaded.
+     * When a rewarded ad has loaded.
      *
      * This type differs from `AdEventType.LOADED` as when a rewarded ad is loaded,
      * an additional data payload is provided to the event handler containing the ad reward
@@ -167,9 +161,7 @@ export namespace Admob {
      *
      * rewardedAd.onAdEvent((type, error, data) => {
      *   if (type === RewardedAdEventType.LOADED) {
-     *     console.log(`Rewarded Ad loaded with ${data.amount} ${data.type} as reward`);
-     *     // E.g. "Rewarded Ad loaded with 50 coins as reward"
-     *     rewardedAd.show();
+     *     console.log('Rewarded Ad loaded with reward:', data);
      *   }
      * });
      * ```
@@ -178,7 +170,7 @@ export namespace Admob {
 
     /**
      * An event fired when the user earned the reward for the video. If the user does not earn a reward,
-     * the `AdEventType.CLOSED` event will be fired with no rewarded event.
+     * the AdEventType.CLOSED` event will be fired with no rewarded event.
      *
      * The reward contains a `type` and `amount`.
      *
@@ -189,8 +181,7 @@ export namespace Admob {
      *
      * rewardedAd.onAdEvent((type, error, data) => {
      *   if (type === RewardedAdEventType.EARNED_REWARD) {
-     *     console.log(`User earned ${data.amount} ${data.type}`);
-     *     // E.g. "User earned 50 coins"
+     *     console.log('User earned the reward:', data);
      *   }
      * });
      * ```
@@ -213,7 +204,7 @@ export namespace Admob {
    * (such as AdID) to serve ads. This policy reflects the requirements of the EU ePrivacy Directive and the
    * General Data Protection Regulation (GDPR).
    *
-   * It is recommended that you determine the status of a user's consent at every app launch. The user consent status is held
+   * It is recommended that you determine the status of a user's consent ay every app launch. The user consent status is held
    * on the device until a condition changes which requires the user to consent again, such as a change in publishers.
    *
    * For more information, see [here](https://developers.google.com/admob/android/eu-consent#delay_app_measurement_optional).
@@ -358,7 +349,7 @@ export namespace Admob {
      * This method is used when providing your own means of user consent. If using the Google-rendered form via `showForm()`,
      * the consent status is automatically set and calling this method is not required.
      *
-     * This method can also be used to reset the consent status, by setting it to `AdsConsentStatus.UNKNOWN`, which may be useful in certain circumstances.
+     * This method can also be used to reset the consent status (via UNKNOWN) which may be useful in certain circumstances.
      *
      * #### Example
      *
@@ -381,7 +372,7 @@ export namespace Admob {
     /**
      * Returns the current consent status of the user.
      *
-     * > The user consent status may change at any time, therefore don't reuse old values locally and always request the current value at any time consent is required.
+     * > Do not persist the user consent status locally.
      *
      * #### Example
      *
@@ -397,7 +388,7 @@ export namespace Admob {
 
     /**
      * If a publisher is aware that the user is under the age of consent, all ad requests must set TFUA (Tag For Users
-     * Under the Age of consent in Europe). This setting takes effect for all future ad requests.
+     * under the Age of Consent in Europe). This setting takes effect for all future ad requests.
      *
      * Once the TFUA setting is enabled, the Google-rendered consent form will fail to load. All ad requests that include
      * TFUA will be made ineligible for personalized advertising and remarketing. TFUA disables requests to third-party
@@ -432,28 +423,28 @@ export namespace Admob {
   }
 
   /**
-   * The options used to show on the Google-rendered consent form. At least one of `withAdFree`, `withPersonalizedAds` and `WithNonPersonalizedAds` needs to be set to `true`.
+   * The options used to show on the Google-rendered consent form.
    */
   export interface AdsConsentFormOptions {
     /**
      * A fully formed HTTP or HTTPS privacy policy URL for your application.
      *
-     * Users will have the option to visit this web page before consenting to ads.
+     * Users will have the option to visit this webpage before consenting to ads.
      */
     privacyPolicy: string;
 
     /**
-     * Set to `true` to provide the option for the user to accept being shown personalized ads, defaults to `false`.
+     * Set to `true` to provide the option for the user to accept being shown personalized ads.
      */
     withPersonalizedAds?: boolean;
 
     /**
-     * Set to `true` to provide the option for the user to accept being shown non-personalized ads, defaults to `false`.
+     * Set to `true` to provide the option for the user to accept being shown non-personalized ads.
      */
     withNonPersonalizedAds?: boolean;
 
     /**
-     * Set to `true` to provide the option for the user to choose an ad-free version of your app, defaults to `false`.
+     * Set to `true` to provide the option for the user to choose an ad-free version of your app.
      *
      * If the user chooses this option, you must handle it as required (e.g. navigating to a paid version of the app,
      * or a subscribe view).
@@ -753,7 +744,7 @@ export namespace Admob {
    */
   export interface RewardedAdReward {
     /**
-     * The reward name, e.g. 'coins', 'diamonds'.
+     * The reward type, e.g. 'coins', 'diamonds'.
      */
     type: string;
 
@@ -770,13 +761,13 @@ export namespace Admob {
     /**
      * @param type The event type, e.g. `AdEventType.LOADED`.
      * @param error An optional JavaScript Error containing the error code and message.
-     * @param data Optional data for the event, e.g. reward type and amount
+     * @param data Optional data for the event, e.g. rewarded
      */
     (type: AdEventType | RewardedAdEventType, error?: Error, data?: any | RewardedAdReward): void;
   }
 
   /**
-   * Base class for InterstitialAd, RewardedAd, NativeAd and BannerAd.
+   * Base call for InterstitialAd, RewardedAd and NativeAd.
    */
   export class MobileAd {
     /**

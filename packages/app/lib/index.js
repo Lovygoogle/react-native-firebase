@@ -18,6 +18,5 @@
 import { getFirebaseRoot } from './internal/registry/namespace';
 
 export const firebase = getFirebaseRoot();
-export utils from './utils';
 
 export default firebase;

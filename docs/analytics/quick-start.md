@@ -13,12 +13,12 @@ Install this module with Yarn:
 yarn add @react-native-firebase/analytics
 ```
 
-Need to install the module manually? Follow the <Anchor href="/android-installation">Android</Anchor> or <Anchor href="/ios-installation">iOS</Anchor> manual installation guides.
+> Integrating manually and not via React Native auto-linking? Check the setup instructions for <Anchor version group href="/android">Android</Anchor> & <Anchor version group href="/ios">iOS</Anchor>.
 
 ## Module usage
 
 The Analytics package will automatically start tracking events such as when users clear app data, dismiss notifications and more.
-To view the full list of automatic events, see [this page](https://support.google.com/firebase/answer/6317485) of the official Firebase documentation.
+To view the full list of automatic events, see <Anchor version group href="/reserved-events">Reserved Events</Anchor>.
 
 The package also provides a JavaScript API to allow for logging custom events and metrics throughout your application.
 
@@ -52,7 +52,7 @@ async function onProductView() {
 
 ### Attaching user data
 
-User data can be attached to analytical events via the [`setUserId`](reference/module#setUserId), [`setUserProperties`](reference/module#setUserProperties) and [`setUserProperty`](reference/module#setUserProperty) methods. Each Firebase project can have up to 25 uniquely named (case-sensitive) user properties.
+User data can be attached to analytical events via the `setUser*` methods:
 
 ```js
 import analytics from '@react-native-firebase/analytics';
@@ -65,11 +65,9 @@ async function onSignIn(user) {
 }
 ```
 
-> When you set user properties, be sure to never include personally identifiable information such as names, social security numbers, or email addresses, even in hashed form.
-
 ### Tracking screen names
 
-Similar to Analytics on the web, it's important to understand the user's journey within your application, for example
+Similar to Analytics on the web, it's important to understand the user journey within your application, for example
 tracking drop off points during a e-commerce transaction flow. The Analytics package provides a method called
 `setCurrentScreen` to help track this.
 

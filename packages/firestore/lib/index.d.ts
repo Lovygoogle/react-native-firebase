@@ -1060,8 +1060,7 @@ export namespace Firestore {
      * const querySnapshot = await firebase.firestore()
      *   .collection('users')
      *   .orderBy('age')
-     *   .startAfter(user)
-     *   .get();
+     *   .startAfter(user);
      * ```
      *
      * > Cursor snapshot queries have limitations. Please see [Query limitations](/) for more information.
@@ -1081,8 +1080,7 @@ export namespace Firestore {
      * const querySnapshot = await firebase.firestore()
      *   .collection('users')
      *   .orderBy('age')
-     *   .startAfter(30)
-     *   .get();
+     *   .startAfter(30);
      * ```
      *
      * @param fieldValues The field values to start this query after, in order of the query's order by.
@@ -1103,8 +1101,7 @@ export namespace Firestore {
      * const querySnapshot = await firebase.firestore()
      *   .collection('users')
      *   .orderBy('age')
-     *   .startAt(user)
-     *   .get();
+     *   .startAt(user);
      * ```
      *
      * > Cursor snapshot queries have limitations. Please see [Query limitations](/) for more information.
@@ -1124,39 +1121,13 @@ export namespace Firestore {
      * const querySnapshot = await firebase.firestore()
      *   .collection('users')
      *   .orderBy('age')
-     *   .startAt(30)
-     *   .get();
+     *   .startAt(30);
      * ```
      *
      * @param fieldValues The field values to start this query at, in order of the query's order by.
      */
     startAt(...fieldValues: any[]): Query;
-
-    /**
-     * Creates and returns a new Query with the additional filter that documents must contain the specified field and
-     * the value should satisfy the relation constraint provided.
-     *
-     * #### Example
-     *
-     * ```js
-     * // Get all users who's age is 30 or above
-     * const querySnapshot = await firebase.firestore()
-     *   .collection('users')
-     *   .where('age', '>=', 30);
-     *   .get();
-     * ```
-     *
-     * @param fieldPath The path to compare.
-     * @param opStr The operation string (e.g "<", "<=", "==", ">", ">=", "array-contains").
-     * @param value The comparison value.
-     */
-    where(fieldPath: string | FieldPath, opStr: WhereFilterOp, value: any): Query;
   }
-
-  /**
-   * Filter conditions in a `Query.where()` clause are specified using the strings '<', '<=', '==', '>=', '>', and 'array-contains'.
-   */
-  export type WhereFilterOp = '<' | '<=' | '==' | '>' | '>=' | 'array-contains';
 
   /**
    * A `QuerySnapshot` contains zero or more `DocumentSnapshot` objects representing the results of a query. The documents

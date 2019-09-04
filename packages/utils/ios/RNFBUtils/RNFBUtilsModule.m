@@ -15,16 +15,24 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
+#import <React/RCTUtils.h>
+#import <Firebase/Firebase.h>
 
-#import <React/RCTBridgeModule.h>
+#import "RNFBUtilsModule.h"
+#import "RNFBApp/RNFBSharedUtils.h"
 
-@interface RNFBUtilsModule : NSObject <RCTBridgeModule>
 
-+ (BOOL)isRemoteAsset:(NSString *)localFilePath;
-+ (BOOL)unused_isHeic:(NSString *)localFilePath;
-+ (NSString *)valueForKey:(NSString *)key fromQueryItems:(NSArray *)queryItems;
-+ (PHAsset *)fetchAssetForPath:(NSString *)localFilePath;
+@implementation RNFBUtilsModule
+#pragma mark -
+#pragma mark Module Setup
+
+  RCT_EXPORT_MODULE();
+
+  - (dispatch_queue_t)methodQueue {
+    return dispatch_get_main_queue();
+  }
+
+#pragma mark -
+#pragma mark Firebase Utils Methods
 
 @end
