@@ -61,6 +61,7 @@ function BannerAd({ unitId, size, requestOptions, ...props }) {
   }, [parsedRequestOptions]);
 
   function onNativeEvent({ nativeEvent }) {
+    console.log(nativeEvent);
     const { width, height, type } = nativeEvent;
 
     if (type !== 'onSizeChanged' && isFunction(props[type])) {
