@@ -47,7 +47,7 @@ import { ReactNativeFirebase } from '@react-native-firebase/app';
  *
  * @firebase firestore
  */
-export namespace FirebaseFirestoreTypes {
+export namespace Firestore {
   import FirebaseModule = ReactNativeFirebase.FirebaseModule;
 
   /**
@@ -121,7 +121,7 @@ export namespace FirebaseFirestoreTypes {
      *
      * @param data An Object containing the data for the new document.
      */
-    add(data: { [key: string]: value }): Promise<DocumentReference>;
+    add(data: { [key]: value }): Promise<DocumentReference>;
 
     /**
      * Get a DocumentReference for the document within the collection at the specified path. If no
@@ -285,11 +285,7 @@ export namespace FirebaseFirestoreTypes {
      *
      * @param observer A single object containing `next` and `error` callbacks.
      */
-    onSnapshot(observer: {
-      complete?: () => void;
-      error?: (error: Error) => void;
-      next?: (snapshot: DocumentSnapshot) => void;
-    }): () => void;
+    onSnapshot(observer: FirestoreObserver): Function;
 
     /**
      * Attaches a listener for DocumentSnapshot events with snapshot listener options.
@@ -315,14 +311,7 @@ export namespace FirebaseFirestoreTypes {
      * @param options Options controlling the listen behavior.
      * @param observer A single object containing `next` and `error` callbacks.
      */
-    onSnapshot(
-      options: SnapshotListenOptions,
-      observer: {
-        complete?: () => void;
-        error?: (error: Error) => void;
-        next?: (snapshot: DocumentSnapshot) => void;
-      },
-    ): () => void;
+    onSnapshot(options: SnapshotListenOptions, observer: FirestoreObserver): Function;
 
     /**
      * Attaches a listener for DocumentSnapshot events.
@@ -346,11 +335,7 @@ export namespace FirebaseFirestoreTypes {
      * @param onError A callback to be called if the listen fails or is cancelled. No further callbacks will occur.
      * @param onCompletion An optional function which will never be called.
      */
-    onSnapshot(
-      onNext: (snapshot: DocumentSnapshot) => void,
-      onError?: (error: Error) => void,
-      onCompletion?: () => void,
-    ): () => void;
+    onSnapshot(onNext: Function, onError?: Function, onCompletion?: Function): Function;
 
     /**
      * Attaches a listener for DocumentSnapshot events with snapshot listener options.
@@ -378,10 +363,10 @@ export namespace FirebaseFirestoreTypes {
      */
     onSnapshot(
       options: SnapshotListenOptions,
-      onNext: (snapshot: DocumentSnapshot) => void,
-      onError?: (error: Error) => void,
-      onCompletion?: () => void,
-    ): () => void;
+      onNext: Function,
+      onError?: Function,
+      onCompletion?: Function,
+    ): Function;
 
     /**
      * Writes to the document referred to by this DocumentReference. If the document does not yet
@@ -404,7 +389,7 @@ export namespace FirebaseFirestoreTypes {
      * @param data A map of the fields and values for the document.
      * @param options An object to configure the set behavior.
      */
-    set(data: { [key: string]: value }, options?: SetOptions): Promise<void>;
+    set(data: { [key]: value }, options?: SetOptions): Promise<void>;
 
     /**
      * Updates fields in the document referred to by this `DocumentReference`. The update will fail
@@ -423,7 +408,7 @@ export namespace FirebaseFirestoreTypes {
      *
      * @param data An object containing the fields and values with which to update the document. Fields can contain dots to reference nested fields within the document.
      */
-    update(data: { [key: string]: value }): Promise<void>;
+    update(data: { [key]: value }): Promise<void>;
 
     /**
      * Updates fields in the document referred to by this DocumentReference. The update will fail if
@@ -484,7 +469,7 @@ export namespace FirebaseFirestoreTypes {
      * console.log('User', user.data());
      * ```
      */
-    data(): { [key: string]: value } | undefined;
+    data(): { [key]: value } | undefined;
 
     /**
      * Retrieves the field specified by fieldPath. Returns undefined if the document or field doesn't exist.
@@ -776,6 +761,12 @@ export namespace FirebaseFirestoreTypes {
     source: 'default' | 'server' | 'cache';
   }
 
+  export interface FirestoreObserver {
+    complete?: Function;
+    error?: Function;
+    next?: Function;
+  }
+
   /**
    * A Query refers to a `Query` which you can read or listen to. You can also construct refined `Query` objects by
    * adding filters and ordering.
@@ -946,11 +937,7 @@ export namespace FirebaseFirestoreTypes {
      *
      * @param observer A single object containing `next` and `error` callbacks.
      */
-    onSnapshot(observer: {
-      complete?: () => void;
-      error?: (error: Error) => void;
-      next?: (snapshot: QuerySnapshot) => void;
-    }): () => void;
+    onSnapshot(observer: FirestoreObserver): Function;
 
     /**
      * Attaches a listener for `QuerySnapshot` events with snapshot listener options.
@@ -976,14 +963,7 @@ export namespace FirebaseFirestoreTypes {
      * @param options Options controlling the listen behavior.
      * @param observer A single object containing `next` and `error` callbacks.
      */
-    onSnapshot(
-      options: SnapshotListenOptions,
-      observer: {
-        complete?: () => void;
-        error?: (error: Error) => void;
-        next?: (snapshot: QuerySnapshot) => void;
-      },
-    ): () => void;
+    onSnapshot(options: SnapshotListenOptions, observer: FirestoreObserver): Function;
 
     /**
      * Attaches a listener for `QuerySnapshot` events.
@@ -1007,11 +987,7 @@ export namespace FirebaseFirestoreTypes {
      * @param onError A callback to be called if the listen fails or is cancelled. No further callbacks will occur.
      * @param onCompletion An optional function which will never be called.
      */
-    onSnapshot(
-      onNext: (snapshot: QuerySnapshot) => void,
-      onError?: (error: Error) => void,
-      onCompletion?: () => void,
-    ): () => void;
+    onSnapshot(onNext: Function, onError?: Function, onCompletion?: Function): Function;
 
     /**
      * Attaches a listener for `QuerySnapshot` events with snapshot listener options.
@@ -1042,7 +1018,7 @@ export namespace FirebaseFirestoreTypes {
       onNext: Function,
       onError?: Function,
       onCompletion?: Function,
-    ): () => void;
+    ): Function;
 
     /**
      * Creates and returns a new Query that's additionally sorted by the specified field, optionally in descending order instead of ascending.
@@ -1512,11 +1488,7 @@ export namespace FirebaseFirestoreTypes {
      * @param data An object of the fields and values for the document.
      * @param options An object to configure the set behavior.
      */
-    set(
-      documentRef: DocumentReference,
-      data: { [key: string]: value },
-      options?: SetOptions,
-    ): Transaction;
+    set(documentRef: DocumentReference, data: { [key]: value }, options?: SetOptions): Transaction;
 
     /**
      * Updates fields in the document referred to by the provided `DocumentReference`. The update will fail if applied
@@ -1539,7 +1511,7 @@ export namespace FirebaseFirestoreTypes {
      * @param documentRef A reference to the document to be updated.
      * @param data An object containing the fields and values with which to update the document. Fields can contain dots to reference nested fields within the document.
      */
-    update(documentRef: DocumentReference, data: { [key: string]: value }): Transaction;
+    update(documentRef: DocumentReference, data: { [key]: value }): Transaction;
 
     /**
      * Updates fields in the document referred to by the provided DocumentReference. The update will fail if applied to
@@ -1638,11 +1610,7 @@ export namespace FirebaseFirestoreTypes {
      * @param data An object of the fields and values for the document.
      * @param options An object to configure the set behavior.
      */
-    set(
-      documentRef: DocumentReference,
-      data: { [key: string]: value },
-      options?: SetOptions,
-    ): WriteBatch;
+    set(documentRef: DocumentReference, data: { [key]: value }, options?: SetOptions): WriteBatch;
 
     /**
      * Updates fields in the document referred to by the provided DocumentReference. The update will fail if applied to a document that does not exist.
@@ -1661,7 +1629,7 @@ export namespace FirebaseFirestoreTypes {
      * @param documentRef A reference to the document to be updated.
      * @param data An object containing the fields and values with which to update the document. Fields can contain dots to reference nested fields within the document.
      */
-    update(documentRef: DocumentReference, data: { [key: string]: value }): WriteBatch;
+    update(documentRef: DocumentReference, data: { [key]: value }): WriteBatch;
 
     /**
      * Updates fields in the document referred to by this DocumentReference. The update will fail if applied to a document that does not exist.
@@ -1893,10 +1861,7 @@ declare module '@react-native-firebase/firestore' {
   const firebaseNamedExport: {} & ReactNativeFirebaseModule;
   export const firebase = firebaseNamedExport;
 
-  const module: FirebaseModuleWithStaticsAndApp<
-    FirebaseFirestoreTypes.Module,
-    FirebaseFirestoreTypes.Statics
-  >;
+  const module: FirebaseModuleWithStaticsAndApp<Firestore.Module, Firestore.Statics>;
   export default module;
 }
 
@@ -1907,13 +1872,10 @@ declare module '@react-native-firebase/app' {
   namespace ReactNativeFirebase {
     import FirebaseModuleWithStaticsAndApp = ReactNativeFirebase.FirebaseModuleWithStaticsAndApp;
     interface Module {
-      firestore: FirebaseModuleWithStaticsAndApp<
-        FirebaseFirestoreTypes.Module,
-        FirebaseFirestoreTypes.Statics
-      >;
+      firestore: FirebaseModuleWithStaticsAndApp<Firestore.Module, Firestore.Statics>;
     }
     interface FirebaseApp {
-      firestore(): FirebaseFirestoreTypes.Module;
+      firestore(): Firestore.Module;
     }
   }
 }
