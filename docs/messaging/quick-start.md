@@ -5,10 +5,9 @@ description: Getting started with Messaging in React Native Firebase
 
 # Messaging Quick Start
 
-## Installation
+> This module has not yet been migrated as part of the on-going v6 work.
 
-This module depends on the `@react-native-firebase/app` module. To get started and install `app`,
-visit the projects <Anchor version={false} group={false} href="/quick-start">quick start</Anchor> guide. 
+## Installation
 
 Install this module with Yarn:
 

@@ -9,7 +9,7 @@ The following steps are only required if you are using React Native <= 0.59 or n
 
 Installation can be done via CocoaPods (recommended) or via Frameworks:
 
-## CocoaPods Installation
+## 1. CocoaPods Installation
 
 ### Add the RNFBAnalytics Pod
 
@@ -36,6 +36,13 @@ Once the Pods have installed locally, rebuild your iOS project:
 ```bash
 react-native run-ios
 ```
+
+## 2. Manual Framework Installation
+
+If your environment does not have access to Cocopods, it is still possible to install the project
+via Frameworks. 
+
+TODO
 
 ## Device Identification
 
