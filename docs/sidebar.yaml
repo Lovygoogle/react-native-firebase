@@ -162,7 +162,7 @@
 
 - module: dynamic-links
   groups:
-    - group: Dynamic Links
+    - group: Dynamic DynamicLinks
       children:
         - text: Overview
           to: '/'
@@ -290,7 +290,7 @@
           to: '/'
         - text: Quick Start
           to: '/quick-start'
-    - group: Platform Installation
+    - group: Manual Installation
       children:
         - text: Android Installation
           to: '/android'
