@@ -53,7 +53,7 @@ import { ReactNativeFirebase } from '@react-native-firebase/app';
  *
  * @firebase perf
  */
-export namespace FirebasePerformanceTypes {
+export namespace Perf {
   /**
    * Type alias describing the valid HTTP methods accepted when creating a new {@link perf.HttpMetric} instance.
    *
@@ -64,10 +64,6 @@ export namespace FirebasePerformanceTypes {
    * ```
    */
   import FirebaseModule = ReactNativeFirebase.FirebaseModule;
-
-  /**
-   * Valid HTTP methods.
-   */
   export type HttpMethod =
     | 'GET'
     | 'HEAD'
@@ -449,10 +445,7 @@ declare module '@react-native-firebase/perf' {
   const firebaseNamedExport: {} & ReactNativeFirebaseModule;
   export const firebase = firebaseNamedExport;
 
-  const module: FirebaseModuleWithStatics<
-    FirebasePerformanceTypes.Module,
-    FirebasePerformanceTypes.Statics
-  >;
+  const module: FirebaseModuleWithStatics<Perf.Module, Perf.Statics>;
   export default module;
 }
 
@@ -463,13 +456,10 @@ declare module '@react-native-firebase/app' {
   namespace ReactNativeFirebase {
     import FirebaseModuleWithStatics = ReactNativeFirebase.FirebaseModuleWithStatics;
     interface Module {
-      perf: FirebaseModuleWithStatics<
-        FirebasePerformanceTypes.Module,
-        FirebasePerformanceTypes.Statics
-      >;
+      perf: FirebaseModuleWithStatics<Perf.Module, Perf.Statics>;
     }
     interface FirebaseApp {
-      perf(): FirebasePerformanceTypes.Module;
+      perf(): Perf.Module;
     }
   }
 }

@@ -53,7 +53,7 @@ import { ReactNativeFirebase } from '@react-native-firebase/app';
  *
  * @firebase messaging
  */
-export namespace FirebaseMessagingTypes {
+export namespace Messaging {
   import FirebaseModule = ReactNativeFirebase.FirebaseModule;
   import NativeFirebaseError = ReactNativeFirebase.NativeFirebaseError;
 
@@ -256,7 +256,7 @@ export namespace FirebaseMessagingTypes {
      *
      * @param listener Called with a `RemoteMessage` when a new FCM payload is received from the server.
      */
-    onMessage(listener: (message: RemoteMessage) => any): () => void;
+    onMessage(listener: (message: RemoteMessage) => any): Function;
 
     /**
      * Called when a new registration token is generated for the device. For example, this event can happen when a
@@ -287,7 +287,7 @@ export namespace FirebaseMessagingTypes {
      *
      * @param listener Called with a FCM token when the token is refreshed.
      */
-    onTokenRefresh(listener: (token: string) => any): () => void;
+    onTokenRefresh(listener: (token: string) => any): Function;
 
     /**
      * On iOS, messaging permission must be requested by the current application before messages can
@@ -422,7 +422,7 @@ export namespace FirebaseMessagingTypes {
      *
      * @param listener Called when the FCM deletes pending messages.
      */
-    onDeletedMessages(listener: () => void): () => void;
+    onDeletedMessages(listener: Function): Function;
 
     /**
      * When sending a `RemoteMessage`, this listener is called when the message has been sent to FCM.
@@ -442,7 +442,7 @@ export namespace FirebaseMessagingTypes {
      *
      * @param listener Called when the FCM sends the remote message to FCM.
      */
-    onMessageSent(listener: (messageId: string) => any): () => void;
+    onMessageSent(listener: (messageId: string) => any): Function;
 
     /**
      * When sending a `RemoteMessage`, this listener is called when an error is thrown and the
@@ -463,7 +463,7 @@ export namespace FirebaseMessagingTypes {
      *
      * @param listener
      */
-    onSendError(listener: (evt: SendErrorEvent) => any): () => void;
+    onSendError(listener: (evt: SendErrorEvent) => any): Function;
 
     /**
      * On Android, set a message handler function which is called when the app is in the background
@@ -548,10 +548,7 @@ declare module '@react-native-firebase/messaging' {
   const firebaseNamedExport: {} & ReactNativeFirebaseModule;
   export const firebase = firebaseNamedExport;
 
-  const module: FirebaseModuleWithStatics<
-    FirebaseMessagingTypes.Module,
-    FirebaseMessagingTypes.Statics
-  >;
+  const module: FirebaseModuleWithStatics<Messaging.Module, Messaging.Statics>;
   export default module;
 }
 
@@ -562,14 +559,11 @@ declare module '@react-native-firebase/app' {
   namespace ReactNativeFirebase {
     import FirebaseModuleWithStatics = ReactNativeFirebase.FirebaseModuleWithStatics;
     interface Module {
-      messaging: FirebaseModuleWithStatics<
-        FirebaseMessagingTypes.Module,
-        FirebaseMessagingTypes.Statics
-      >;
+      messaging: FirebaseModuleWithStatics<Messaging.Module, Messaging.Statics>;
     }
 
     interface FirebaseApp {
-      messaging(): FirebaseMessagingTypes.Module;
+      messaging(): Messaging.Module;
     }
   }
 }
