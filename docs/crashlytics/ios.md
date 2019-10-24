@@ -9,7 +9,7 @@ The following steps are only required if your environment does not have access t
 
 ## CocoaPods Installation
 
-### Add the RNFBCrashlytics Pod
+### Add the RNFBFirestore Pod
 
 Add the `RNFBCrashlytics`, `Fabric` & `Crashlytics` Pod to your projects `/ios/Podfile`:
 
