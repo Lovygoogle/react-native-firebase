@@ -182,17 +182,9 @@
 
       NSArray<PHAssetResource *> *resources = [PHAssetResource assetResourcesForAsset:asset];
       for (PHAssetResource *resource in resources) {
-        if (resources.count > 1) {
-          if (resource.type != PHAssetResourceTypeVideo) {
-            continue;
-          } else {
-            exportSession.outputFileType = resource.uniformTypeIdentifier;
-          }
-        } else {
-          exportSession.outputFileType = resource.uniformTypeIdentifier;
-        }
-
-        if (exportSession.outputFileType != nil) break;
+        exportSession.outputFileType = resource.uniformTypeIdentifier;
+        if (exportSession.outputFileType != nil)
+          break;
       }
 
       [exportSession exportAsynchronouslyWithCompletionHandler:^{
