@@ -176,24 +176,6 @@ export namespace FirebaseFirestoreTypes {
   export type DocumentChangeType = 'added' | 'removed' | 'modified';
 
   /**
-   * The types for a DocumentSnapshot field that are supported by Firestore.
-   */
-  export type DocumentFieldType =
-    | string
-    | number
-    | boolean
-    | { [key: string]: DocumentFieldType }
-    | DocumentFieldType[]
-    | null
-    | Timestamp
-    | GeoPoint
-    | Blob
-    | FieldPath
-    | FieldValue
-    | DocumentReference
-    | CollectionReference;
-
-  /**
    * A `DocumentReference` refers to a document location in a Firestore database and can be used to write, read, or listen
    * to the location. The document at the referenced location may or may not exist. A `DocumentReference` can also be used
    * to create a `CollectionReference` to a subcollection.
@@ -510,14 +492,14 @@ export namespace FirebaseFirestoreTypes {
      * #### Example
      *
      * ```js
-     * const user = await firebase.firestore().doc('users/alovelace').get<string>();
+     * const user = await firebase.firestore().doc('users/alovelace').get();
      *
      * console.log('Address ZIP Code', user.get('address.zip'));
      * ```
      *
      * @param fieldPath The path (e.g. 'foo' or 'foo.bar') to a specific field.
      */
-    get<fieldType extends DocumentFieldType>(fieldPath: string | FieldPath): fieldType;
+    get(fieldPath: string | FieldPath): any;
 
     /**
      * Returns true if this `DocumentSnapshot` is equal to the provided one.
