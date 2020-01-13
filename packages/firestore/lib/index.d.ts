@@ -185,11 +185,13 @@ export namespace FirebaseFirestoreTypes {
     | { [key: string]: DocumentFieldType }
     | DocumentFieldType[]
     | null
-    | FirebaseFirestoreTypes.Timestamp
-    | FirebaseFirestoreTypes.GeoPoint
-    | FirebaseFirestoreTypes.Blob
-    | FirebaseFirestoreTypes.FieldPath
-    | FirebaseFirestoreTypes.FieldValue;
+    | Timestamp
+    | GeoPoint
+    | Blob
+    | FieldPath
+    | FieldValue
+    | DocumentReference
+    | CollectionReference;
 
   /**
    * A `DocumentReference` refers to a document location in a Firestore database and can be used to write, read, or listen
@@ -508,9 +510,9 @@ export namespace FirebaseFirestoreTypes {
      * #### Example
      *
      * ```js
-     * const user = await firebase.firestore().doc('users/alovelace').get();
+     * const user = await firebase.firestore().doc('users/alovelace').get<string>();
      *
-     * console.log('Address ZIP Code', user.get<string>('address.zip'));
+     * console.log('Address ZIP Code', user.get('address.zip'));
      * ```
      *
      * @param fieldPath The path (e.g. 'foo' or 'foo.bar') to a specific field.
