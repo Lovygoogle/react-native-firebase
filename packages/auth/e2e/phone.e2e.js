@@ -18,8 +18,7 @@ describe('auth() => Phone', () => {
     }
   });
 
-  // TODO temporarily disabled tests, these are flakey on CI and sometimes fail - needs investigation
-  xdescribe('signInWithPhoneNumber', () => {
+  describe('signInWithPhoneNumber', () => {
     it('signs in with a valid code', async () => {
       const confirmResult = await firebase.auth().signInWithPhoneNumber(TEST_PHONE_A);
       confirmResult.verificationId.should.be.a.String();

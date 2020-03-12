@@ -520,7 +520,7 @@ export namespace FirebaseDynamicLinksTypes {
      *
      * ```js
      * async function bootstrapApp() {
-     *    const initialLink = await firebase.dynamicLinks().getInitialLink();
+     *    await initialLink = await firebase.dynamicLinks().getInitialLink();
      *
      *    if (initialLink) {
      *      // Handle dynamic link inside your own application
@@ -535,7 +535,7 @@ export namespace FirebaseDynamicLinksTypes {
      * Subscribe to Dynamic Link open events while the app is still running.
      *
      * The listener is called from Dynamic Link open events whilst the app is still running, use
-     * {@link dynamic-links#getInitialLink} for Dynamic Links which cause the app to open from a previously closed / not running state.
+     * {@link links#getInitialLink} for Dynamic Links which cause the app to open from a previously closed / not running state.
      *
      * #### Example
      *

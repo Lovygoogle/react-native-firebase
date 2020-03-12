@@ -30,10 +30,7 @@ class ReactNativeFirebaseFirestoreCommon {
       UniversalFirebaseFirestoreException universalException = new UniversalFirebaseFirestoreException((FirebaseFirestoreException) exception, exception.getCause());
       rejectPromiseWithCodeAndMessage(promise, universalException.getCode(), universalException.getMessage());
     } else if (exception.getCause() != null && exception.getCause() instanceof FirebaseFirestoreException) {
-      UniversalFirebaseFirestoreException universalException = new UniversalFirebaseFirestoreException(
-        (FirebaseFirestoreException) exception.getCause(),
-        exception.getCause().getCause() != null ? exception.getCause().getCause() : exception.getCause()
-      );
+      UniversalFirebaseFirestoreException universalException = new UniversalFirebaseFirestoreException((FirebaseFirestoreException) exception.getCause(), exception.getCause().getCause());
       rejectPromiseWithCodeAndMessage(promise, universalException.getCode(), universalException.getMessage());
     } else {
       rejectPromiseWithExceptionMap(promise, exception);

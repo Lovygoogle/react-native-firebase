@@ -248,7 +248,7 @@ export function createFirebaseRoot() {
     });
   }
 
-  return FIREBASE_ROOT;
+  return Object.freeze(FIREBASE_ROOT);
 }
 
 /**

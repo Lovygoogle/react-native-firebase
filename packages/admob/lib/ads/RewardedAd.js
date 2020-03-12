@@ -45,11 +45,11 @@ export default class RewardedAd extends MobileAd {
 
   load() {
     // Prevent multiple load calls
-    if (this._loaded) {
+    if (this._loading) {
       return;
     }
 
-    this._loaded = true;
+    this._loading = true;
     this._admob.native.rewardedLoad(this._requestId, this._adUnitId, this._requestOptions);
   }
 
@@ -62,7 +62,7 @@ export default class RewardedAd extends MobileAd {
   }
 
   show(showOptions) {
-    if (!this._loaded) {
+    if (!this.loaded) {
       throw new Error(
         'firebase.admob() RewardedAd.show() The requested RewardedAd has not loaded and could not be shown.',
       );

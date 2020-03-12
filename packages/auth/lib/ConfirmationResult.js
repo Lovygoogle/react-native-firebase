@@ -27,7 +27,7 @@ export default class ConfirmationResult {
       .then(user => this._auth._setUser(user));
   }
 
-  get verificationId() {
+  get verificationId(): string | null {
     return this._verificationId;
   }
 }

@@ -72,7 +72,7 @@ export default function build(dynamicLinksParams) {
   };
 
   if (analytics) {
-    params.analytics = buildAnalytics(analytics);
+    params.android = buildAnalytics(analytics);
   }
 
   if (android) {

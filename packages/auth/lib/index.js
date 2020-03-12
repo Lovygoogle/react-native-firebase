@@ -231,11 +231,11 @@ class FirebaseAuthModule extends FirebaseModule {
       .then(userCredential => this._setUserCredential(userCredential));
   }
 
-  sendPasswordResetEmail(email, actionCodeSettings = null) {
+  sendPasswordResetEmail(email, actionCodeSettings) {
     return this.native.sendPasswordResetEmail(email, actionCodeSettings);
   }
 
-  sendSignInLinkToEmail(email, actionCodeSettings = {}) {
+  sendSignInLinkToEmail(email, actionCodeSettings) {
     return this.native.sendSignInLinkToEmail(email, actionCodeSettings);
   }
 
@@ -273,13 +273,6 @@ class FirebaseAuthModule extends FirebaseModule {
 
   verifyPasswordResetCode(code) {
     return this.native.verifyPasswordResetCode(code);
-  }
-
-  useUserAccessGroup(userAccessGroup) {
-    if (isAndroid) {
-      return Promise.resolve();
-    }
-    return this.native.useUserAccessGroup(userAccessGroup);
   }
 
   getRedirectResult() {

@@ -43,7 +43,5 @@ A) At the top of the file:
 B) At the beginning of the `didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` method add the following line:
 
 ```objectivec
-if ([FIRApp defaultApp] == nil) {
-      [FIRApp configure];
-    }
+[FIRApp configure];
 ```

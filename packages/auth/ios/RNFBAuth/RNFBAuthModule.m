@@ -159,23 +159,6 @@ RCT_EXPORT_METHOD(setAppVerificationDisabledForTesting:
   [FIRAuth authWithApp:firebaseApp].settings.appVerificationDisabledForTesting = disabled;
 }
 
-RCT_EXPORT_METHOD(useUserAccessGroup:
-  (FIRApp *) firebaseApp
-    :(NSString *) userAccessGroup
-    :(RCTPromiseResolveBlock) resolve
-    :(RCTPromiseRejectBlock) reject
-) {
-  NSError *error;
-  [[FIRAuth authWithApp:firebaseApp] useUserAccessGroup:userAccessGroup error:&error];
-
-  if(!error){
-    [self promiseNoUser:resolve rejecter:reject isError:NO];
-  } else {
-    [self promiseRejectAuthException:reject error:error];
-  }
-  return;
-}
-
 RCT_EXPORT_METHOD(signOut:
   (FIRApp *) firebaseApp
     :(RCTPromiseResolveBlock) resolve
@@ -1162,7 +1145,7 @@ RCT_EXPORT_METHOD(verifyPasswordResetCode:
   }
 
   if (actionCodeSettings[keyDynamicLinkDomain]) {
-    NSString *dynamicLinkDomain = actionCodeSettings[keyDynamicLinkDomain];
+    NSString *dynamicLinkDomain = [actionCodeSettings[keyDynamicLinkDomain] stringValue];
     [settings setDynamicLinkDomain:dynamicLinkDomain];
   }
 

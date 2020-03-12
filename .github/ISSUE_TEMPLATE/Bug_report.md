@@ -58,8 +58,6 @@ Describe your issue here
 ```json
 # N/A
 ```
-</details>
-
 
 ### iOS
 

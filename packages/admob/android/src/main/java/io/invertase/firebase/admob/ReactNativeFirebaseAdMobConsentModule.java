@@ -86,10 +86,6 @@ public class ReactNativeFirebaseAdMobConsentModule extends ReactNativeFirebaseMo
 
   @ReactMethod
   public void showForm(ReadableMap options, Promise promise) {
-    if (getCurrentActivity() == null) {
-      rejectPromiseWithCodeAndMessage(promise, "null-activity", "Consent form attempted to show but the current Activity was null.");
-      return;
-    }
     getCurrentActivity().runOnUiThread(() -> {
       URL privacyUrl = null;
 
@@ -102,11 +98,7 @@ public class ReactNativeFirebaseAdMobConsentModule extends ReactNativeFirebaseMo
       ConsentFormListener listener = new ConsentFormListener() {
         @Override
         public void onConsentFormLoaded() {
-          try {
-            consentForm.show();
-          } catch (Exception e) {
-            rejectPromiseWithCodeAndMessage(promise, "consent-form-error", e.toString());
-          }
+          consentForm.show();
         }
 
         @Override

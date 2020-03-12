@@ -107,8 +107,8 @@ describe('mlkit.vision.landmark', () => {
         }
       });
     });
-    // TODO temporarily disable test suite - is flakey on CI - needs investigating
-    xdescribe('maxResults', () => {
+
+    describe('maxResults', () => {
       it('throws if maxResults is not a number', async () => {
         try {
           await firebase.vision().cloudLandmarkRecognizerProcessImage(testImageFile, {

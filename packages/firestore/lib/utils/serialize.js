@@ -16,7 +16,6 @@
  */
 
 import {
-  isAndroid,
   isArray,
   isBoolean,
   isDate,
@@ -121,9 +120,6 @@ export function generateNativeData(value) {
   }
 
   if (isNumber(value)) {
-    if (isAndroid) {
-      return getTypeMapInt('number', value.toString());
-    }
     return getTypeMapInt('number', value);
   }
 
