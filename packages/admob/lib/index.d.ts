@@ -710,7 +710,7 @@ export namespace FirebaseAdMobTypes {
      * });
      * ```
      */
-    location?: [number, number];
+    location?: string[];
 
     /**
      * Sets the location accuracy if the location is set, in meters.

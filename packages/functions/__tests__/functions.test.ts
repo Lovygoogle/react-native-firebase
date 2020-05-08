@@ -25,12 +25,16 @@ describe('Cloud Functions', () => {
 
   describe('httpcallable()', () => {
     it('throws an error with an incorrect timeout', () => {
-      const app = firebase.app();
+      try {
+        const app = firebase.app();
 
-      // @ts-ignore
-      expect(() => app.functions().httpsCallable('example', { timeout: 'test' })).toThrow(
-        'HttpsCallableOptions.timeout expected a Number in milliseconds',
-      );
+        // @ts-ignore
+        app.functions().httpsCallable('example', { timeout: 'test' });
+        return Promise.reject(new Error('Did not throw'));
+      } catch (e) {
+        expect(e.message).toEqual('HttpsCallableOptions.timeout expected a Number in milliseconds');
+        return Promise.resolve();
+      }
     });
   });
 });
